@@ -1,0 +1,96 @@
+<!--
+  Template HTML de la página Contacto
+  Esta página muestra la información de contacto del estudiante
+  Darwin Colmenares y un formulario para enviar mensajes.
+-->
+
+<!-- Header de la página con toolbar de color terciario (morado) -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <!-- Botón de menú hamburguesa para abrir el side menu lateral -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenido principal de la página con padding -->
+<ion-content class="ion-padding">
+  
+  <!-- Título de la sección de información de contacto -->
+  <h2>Información de Contacto</h2>
+  
+  <!-- Lista que muestra los datos de contacto del estudiante -->
+  <ion-list>
+    
+    <!-- Item con el número de teléfono -->
+    <ion-item>
+      <!-- Icono de teléfono posicionado al inicio -->
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-label>
+        <!-- 
+          Teléfono de contacto: +58 426-5152896
+          Formato internacional con código de país Venezuela (+58)
+        -->
+        Teléfono: +58 426-5152896
+      </ion-label>
+    </ion-item>
+    
+    <!-- Item con la dirección física -->
+    <ion-item>
+      <!-- Icono de ubicación/map marker posicionado al inicio -->
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>
+        <!-- 
+          Dirección: Caracas, Distrito Capital, Venezuela
+          Capital de Venezuela, ubicada en la zona norte del país
+        -->
+        Dirección: Caracas, Distrito Capital, Venezuela
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+  <!-- Título de la sección del formulario -->
+  <h3>Envíanos un mensaje</h3>
+  
+  <!-- 
+    Formulario de contacto con two-way data binding [(ngModel)]
+    Los datos se sincronizan automáticamente entre el HTML y el TypeScript
+  -->
+  
+  <!-- Campo de entrada para el nombre -->
+  <ion-item>
+    <!-- Label flotante que se anima al enfocar el campo -->
+    <ion-label position="floating">Nombre</ion-label>
+    <!-- Input vinculado a la propiedad 'nombre' del componente -->
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  
+  <!-- Campo de entrada para el correo electrónico -->
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <!-- Input de tipo email con validación automática del navegador -->
+    <ion-input type="email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  
+  <!-- Campo de entrada para el mensaje (área de texto expandible) -->
+  <ion-item>
+    <ion-label position="floating">Mensaje</ion-label>
+    <!-- Textarea vinculado a la propiedad 'mensaje' del componente -->
+    <ion-textarea [(ngModel)]="mensaje"></ion-textarea>
+  </ion-item>
+  
+  <!-- 
+    Botón de envío que ocupa todo el ancho disponible (expand="block")
+    Al hacer clic, ejecuta el método enviarMensaje() del componente
+    ion-margin-top añade margen superior para separación visual
+  -->
+  <ion-button expand="block" (click)="enviarMensaje()" class="ion-margin-top">
+    <!-- Icono de enviar posicionado al inicio del botón -->
+    <ion-icon name="send-outline" slot="start"></ion-icon>
+    Enviar Mensaje
+  </ion-button>
+  
+</ion-content>

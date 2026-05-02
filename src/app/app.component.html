@@ -1,3 +1,47 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- 
+    Menú lateral (Side Menu)
+    contentId debe coincidir con el id del IonRouterOutlet
+  -->
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menú Principal</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <!-- 
+          Cada opción del menú usa (click) para llamar al método navegar()
+          IonMenuToggle cierra automáticamente el menú al hacer clic
+        -->
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navegar('/inicio')">
+            <ion-icon name="home-outline" slot="start"></ion-icon>
+            <ion-label>Inicio</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navegar('/informacion-personal')">
+            <ion-icon name="person-outline" slot="start"></ion-icon>
+            <ion-label>Información Personal</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navegar('/contacto')">
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-label>Contacto</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- 
+    IonRouterOutlet es el contenedor donde se renderizan las páginas
+    id="main-content" conecta con el menú lateral
+  -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

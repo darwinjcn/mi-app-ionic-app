@@ -1,3 +1,7 @@
+/**
+ * Punto de entrada de la aplicación Angular
+ * Inicializa la aplicación con el componente raíz AppComponent
+ */
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';

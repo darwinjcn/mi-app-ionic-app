@@ -1,0 +1,75 @@
+<!--
+  Template HTML de la página Información Personal
+  Esta página presenta los datos del estudiante Darwin Colmenares
+  en una tarjeta (IonCard) con iconos descriptivos para cada campo.
+-->
+
+<!-- Header de la página con toolbar de color secundario -->
+<ion-header>
+  <ion-toolbar color="secondary">
+    <!-- Botón de menú hamburguesa para abrir el side menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- Título de la página que aparece en el header -->
+    <ion-title>Información Personal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenido principal de la página con padding -->
+<ion-content class="ion-padding">
+  
+  <!-- 
+    Tarjeta que agrupa la información personal del estudiante
+    IonCard proporciona un contenedor con sombra y bordes redondeados
+  -->
+  <ion-card>
+    <!-- Cabecera de la tarjeta con el título -->
+    <ion-card-header>
+      <ion-card-title>Datos del Estudiante</ion-card-title>
+    </ion-card-header>
+    
+    <!-- Contenido de la tarjeta con los datos personales -->
+    <ion-card-content>
+      
+      <!-- Item con el nombre completo del estudiante -->
+      <ion-item>
+        <!-- Icono de persona posicionado al inicio del item -->
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-label>
+          <!-- Título del campo -->
+          <h2>Nombre Completo</h2>
+          <!-- Valor: Darwin Colmenares -->
+          <p>Darwin Colmenares</p>
+        </ion-label>
+      </ion-item>
+      
+      <!-- Item con la carrera y universidad del estudiante -->
+      <ion-item>
+        <!-- Icono de escuela/graduación posicionado al inicio -->
+        <ion-icon name="school-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Carrera / Universidad</h2>
+          <!-- 
+            Valor: Ingeniería en Informática / UNETI
+            UNETI = Universidad Nacional Experimental de Telecomunicaciones
+          -->
+          <p>Ingeniería en Informática / UNETI</p>
+        </ion-label>
+      </ion-item>
+      
+      <!-- Item con el correo electrónico del estudiante -->
+      <ion-item>
+        <!-- Icono de correo posicionado al inicio -->
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Correo Electrónico</h2>
+          <!-- Valor: colmenaresdarwin06@gmail.com -->
+          <p>colmenaresdarwin06@gmail.com</p>
+        </ion-label>
+      </ion-item>
+      
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
