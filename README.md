@@ -29,6 +29,8 @@ Esta aplicación fue desarrollada como parte de una evaluación académica para 
 ---
 
 ## 📁 Estructura del Proyecto
+
+```
 miAppEvaluacion/
 ├── src/
 │   ├── app/
@@ -45,9 +47,26 @@ miAppEvaluacion/
 ├── angular.json                     # Configuración de Angular CLI
 ├── package.json                     # Dependencias del proyecto
 ├── tsconfig.json                    # Configuración de TypeScript
+├── public/
+│   └── screenshots/                 # Capturas de pantalla
 └── README.md                        # Este archivo
+```
 
+---
 
+## 📸 Capturas de Pantalla
+
+### Página de Inicio
+![Página de Inicio](./public/screenshots/pagina-inicio.png)
+
+### Menú Lateral
+![Menú Lateral](./public/screenshots/barra-lateral.png)
+
+### Página de Información Personal
+![Información Personal](./public/screenshots/info-personal.png)
+
+### Página de Contacto
+![Página de Contacto](./public/screenshots/pagina-contacto.png)
 
 ---
 
@@ -72,44 +91,43 @@ npm install
 
 # 4. Iniciar el servidor de desarrollo
 ionic serve
+```
 
-La aplicación se abrirá automáticamente en el navegador en http://localhost:8100
+---
 
-👤 Información del Desarrollador
+## 👤 Información del Desarrollador
+
 | Campo                  | Información                                                     |
 | ---------------------- | --------------------------------------------------------------- |
 | **Nombre**             | Darwin Colmenares                                               |
 | **Carrera**            | Ingeniería en Informática                                       |
 | **Universidad**        | UNETI (Universidad Nacional Experimental de Telecomunicaciones) |
-| **Correo electrónico** | <colmenaresdarwin06@gmail.com>                                  |
+| **Correo electrónico** | colmenaresdarwin06@gmail.com                                    |
 | **Teléfono**           | +58 426-5152896                                                 |
 | **Ubicación**          | Caracas, Distrito Capital, Venezuela                            |
 
-📸 Capturas de Pantalla
-Página de Inicio
-![alt text](image.png)
+---
 
-Menú Lateral
-![alt text](image-1.png)
+## 📝 Características del Código
 
-Página de Información Personal
-![alt text](image-2.png)
+- **Componentes standalone de Angular**: Cada página es un componente independiente con sus propios imports
+- **Documentación exhaustiva**: Todo el código fuente incluye comentarios explicativos detallados
+- **Uso de Ionicons**: Iconos vectoriales integrados para una interfaz visual profesional
+- **Two-way data binding**: Formulario de contacto con sincronización bidireccional de datos
+- **Navegación con Angular Router**: Método programático para la navegación entre páginas
 
-Página de Contacto
-![alt text](image-3.png)
+---
 
-📝 Características del Código
-Componentes standalone de Angular: Cada página es un componente independiente con sus propios imports
-Documentación exhaustiva: Todo el código fuente incluye comentarios explicativos detallados
-Uso de Ionicons: Iconos vectoriales integrados para una interfaz visual profesional
-Two-way data binding: Formulario de contacto con sincronización bidireccional de datos
-Navegación con Angular Router: Método programático para la navegación entre páginas
-📚 Referencias
-Ionic Framework Documentation. (2024). https://ionicframework.com/docs
-Angular Documentation. (2024). https://angular.dev
-Ionicons. (2024). https://ionicons.com
+## 📚 Referencias
 
-📄 Licencia
+- [Ionic Framework Documentation](https://ionicframework.com/docs) (2024)
+- [Angular Documentation](https://angular.dev) (2024)
+- [Ionicons](https://ionicons.com) (2024)
+
+---
+
+## 📄 Licencia
+
 Este proyecto fue desarrollado con fines académicos para la asignatura de [nombre de la asignatura] en UNETI.
 
-Nota: Este proyecto es parte de una evaluación académica y no está destinado para producción comercial.
+> **Nota:** Este proyecto es parte de una evaluación académica y no está destinado para producción comercial.
