@@ -1,13 +1,16 @@
-<!--
+﻿<!--
   Template HTML de la página Contacto
-  Esta página muestra la información de contacto del estudiante
-  Darwin Colmenares y un formulario para enviar mensajes.
+  Muestra información de contacto y un formulario con validaciones
+  
+  LO QUE SE PROGRAMA:
+  - Mensajes de error condicionales (solo aparecen si hay error y se intentó enviar)
+  - Indicadores visuales de campos inválidos
+  - Botón con color dinámico según validez
 -->
 
-<!-- Header de la página con toolbar de color terciario (morado) -->
 <ion-header>
   <ion-toolbar color="tertiary">
-    <!-- Botón de menú hamburguesa para abrir el side menu lateral -->
+    <!-- Botón de menú hamburguesa para abrir el side menu -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -15,82 +18,77 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenido principal de la página con padding -->
 <ion-content class="ion-padding">
   
-  <!-- Título de la sección de información de contacto -->
+  <!-- Sección de información de contacto del estudiante -->
   <h2>Información de Contacto</h2>
-  
-  <!-- Lista que muestra los datos de contacto del estudiante -->
   <ion-list>
-    
-    <!-- Item con el número de teléfono -->
     <ion-item>
-      <!-- Icono de teléfono posicionado al inicio -->
       <ion-icon name="call-outline" slot="start"></ion-icon>
-      <ion-label>
-        <!-- 
-          Teléfono de contacto: +58 426-5152896
-          Formato internacional con código de país Venezuela (+58)
-        -->
-        Teléfono: +58 426-5152896
-      </ion-label>
+      <ion-label>Teléfono: +58 426-5152896</ion-label>
     </ion-item>
-    
-    <!-- Item con la dirección física -->
     <ion-item>
-      <!-- Icono de ubicación/map marker posicionado al inicio -->
       <ion-icon name="location-outline" slot="start"></ion-icon>
-      <ion-label>
-        <!-- 
-          Dirección: Caracas, Distrito Capital, Venezuela
-          Capital de Venezuela, ubicada en la zona norte del país
-        -->
-        Dirección: Caracas, Distrito Capital, Venezuela
-      </ion-label>
+      <ion-label>Dirección: Caracas, Distrito Capital, Venezuela</ion-label>
     </ion-item>
-    
   </ion-list>
 
-  <!-- Título de la sección del formulario -->
+  <!-- 
+    FORMULARIO DE CONTACTO CON VALIDACIONES
+    LO QUE SE PROGRAMA: validaciones visuales y mensajes de error
+  -->
   <h3>Envíanos un mensaje</h3>
   
-  <!-- 
-    Formulario de contacto con two-way data binding [(ngModel)]
-    Los datos se sincronizan automáticamente entre el HTML y el TypeScript
-  -->
-  
-  <!-- Campo de entrada para el nombre -->
-  <ion-item>
-    <!-- Label flotante que se anima al enfocar el campo -->
+  <!-- Campo Nombre -->
+  <ion-item [class.ion-invalid]="!nombreValido && intentoEnviar">
     <ion-label position="floating">Nombre</ion-label>
-    <!-- Input vinculado a la propiedad 'nombre' del componente -->
     <ion-input [(ngModel)]="nombre"></ion-input>
   </ion-item>
-  
-  <!-- Campo de entrada para el correo electrónico -->
-  <ion-item>
+  <!-- 
+    Mensaje de error programado: solo aparece si es inválido Y se intentó enviar
+    LO QUE SE PROGRAMA: condición *ngIf personalizada
+  -->
+  <ion-note color="danger" *ngIf="!nombreValido && intentoEnviar">
+    El nombre es obligatorio
+  </ion-note>
+
+  <!-- Campo Email -->
+  <ion-item [class.ion-invalid]="!emailValido && intentoEnviar">
     <ion-label position="floating">Email</ion-label>
-    <!-- Input de tipo email con validación automática del navegador -->
     <ion-input type="email" [(ngModel)]="email"></ion-input>
   </ion-item>
-  
-  <!-- Campo de entrada para el mensaje (área de texto expandible) -->
-  <ion-item>
+  <!-- 
+    Mensaje de error programado para email
+    LO QUE SE PROGRAMA: validación de formato con expresión regular
+  -->
+  <ion-note color="danger" *ngIf="!emailValido && intentoEnviar">
+    Ingrese un correo electrónico válido
+  </ion-note>
+
+  <!-- Campo Mensaje -->
+  <ion-item [class.ion-invalid]="!mensajeValido && intentoEnviar">
     <ion-label position="floating">Mensaje</ion-label>
-    <!-- Textarea vinculado a la propiedad 'mensaje' del componente -->
     <ion-textarea [(ngModel)]="mensaje"></ion-textarea>
   </ion-item>
-  
   <!-- 
-    Botón de envío que ocupa todo el ancho disponible (expand="block")
-    Al hacer clic, ejecuta el método enviarMensaje() del componente
-    ion-margin-top añade margen superior para separación visual
+    Mensaje de error programado para mensaje
+    LO QUE SE PROGRAMA: validación de longitud mínima (10 caracteres)
   -->
-  <ion-button expand="block" (click)="enviarMensaje()" class="ion-margin-top">
-    <!-- Icono de enviar posicionado al inicio del botón -->
+  <ion-note color="danger" *ngIf="!mensajeValido && intentoEnviar">
+    El mensaje debe tener al menos 10 caracteres
+  </ion-note>
+
+  <!-- 
+    Botón de envío programado:
+    - color cambia según validez (success si válido, medium si inválido)
+    - al hacer clic ejecuta enviarMensaje() que programé
+  -->
+  <ion-button 
+    expand="block" 
+    [color]="formularioValido ? 'success' : 'medium'"
+    (click)="enviarMensaje()" 
+    class="ion-margin-top">
     <ion-icon name="send-outline" slot="start"></ion-icon>
     Enviar Mensaje
   </ion-button>
-  
 </ion-content>
